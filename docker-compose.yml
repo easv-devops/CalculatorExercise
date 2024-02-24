@@ -1,0 +1,19 @@
+﻿version: '3.8'
+services:
+  calculator:
+    image: calculator
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - pgconn=${pgconn}
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: tjahxwjk
+      POSTGRES_USER: tjahxwjk
+      POSTGRES_PASSWORD: ${password}
+    
