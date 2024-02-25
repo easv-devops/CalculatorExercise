@@ -1,4 +1,4 @@
-﻿kind: pipeline
+kind: pipeline
 type: docker
 name: integration
 
@@ -21,12 +21,12 @@ steps:
       - cd tests
       - dotnet test
 
-   - name: code-analysis
-     image: boulundeasv/dotnet-sdk-with-java
-     environment:
-       SONARSECRET:
-         from_secret: SonarQubeSecret
-     commands:
+  - name: code-analysis
+    image: boulundeasv/dotnet-sdk-with-java
+    environment:
+      SONARSECRET:
+        from_secret: SonarQubeSecret
+    commands:
       - dotnet sonarscanner begin /k:"easv-devops_CalculatorExercise_AY3f5nvSEVvRW2O60EID" /d:sonar.host.url="http://sonar.setgo.dk:9000"  /d:sonar.token="$SONARSECRET"
       - dotnet build
       - dotnet sonarscanner end /d:sonar.token="$SONARSECRET"
