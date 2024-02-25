@@ -5,6 +5,9 @@ name: integration
 steps:
   - name: build
     image: mcr.microsoft.com/dotnet/sdk
+    environment: 
+      SONARSECRET:
+        from_secret: pgconn
     commands:
       - cd src
       - dotnet build
