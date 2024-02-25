@@ -1,6 +1,11 @@
 ﻿using Calculator;
 using Npgsql;
 
+public class Program
+{
+
+    public static void Main(string[] args)
+    {
     Console.WriteLine("Enter the first number:");
     double number1 = GetInput();
     Console.WriteLine("Enter the second number:");
@@ -60,5 +65,5 @@ using Npgsql;
                 return 0;
         }
 
-
+    }}
     }
